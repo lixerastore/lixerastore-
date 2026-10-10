@@ -9,7 +9,7 @@
 *{box-sizing:border-box}
 body{margin:0;background:#080d18;color:#f4f7ff;font-family:Arial,sans-serif}
 header{padding:22px 18px;background:#101b30;border-bottom:1px solid #203b65}
-.logo{font-size:26px;font-weight:900;color:#45a5ff}
+.logo{font-size:25px;font-weight:900;color:#45a5ff}
 .logo span{color:white}
 header p{font-size:12px;color:#a8bddb}
 main{max-width:650px;margin:auto;padding:18px}
@@ -33,97 +33,85 @@ footer{text-align:center;padding:25px;color:#7186a4;font-size:12px}
 </head>
 <body>
 <header>
-  <div class="logo">LIXERA <span>STORE</span></div>
-  <p>TOP UP GAME • CEPAT • AMAN • MUDAH</p>
+<div class="logo">LIXERA <span>STORE</span></div>
+<p>TOP UP GAME • CEPAT • AMAN • MUDAH</p>
 </header>
 <main>
-  <section class="hero">
-    <span class="tag">GAMING STORE</span>
-    <h1>TOP UP GAME<br>JADI LEBIH MUDAH!</h1>
-    <p>Pilih paket, masukkan ID akun, lalu kirim pesanan ke admin.</p>
-  </section>
+<section class="hero">
+<span class="tag">GAMING STORE</span>
+<h1>TOP UP GAME<br>JADI LEBIH MUDAH!</h1>
+<p>Pilih paket, masukkan ID akun, lalu kirim pesanan ke admin.</p>
+</section>
 
-  <section class="card">
-    <h2>01. Pilih Game</h2>
-    <label for="game">Game pilihan</label>
-    <select id="game">
-      <option value="Mobile Legends">Mobile Legends</option>
-    </select>
-  </section>
+<section class="card">
+<h2>01. Pilih Game</h2>
+<label for="game">Game pilihan</label>
+<select id="game">
+<option value="Mobile Legends">Mobile Legends</option>
+</select>
+</section>
 
-  <section class="card">
-    <h2>02. Data Akun</h2>
-    <label for="uid">User ID</label>
-    <input id="uid" inputmode="numeric" placeholder="Masukkan User ID ML">
-    <label for="zone">Zone ID</label>
-    <input id="zone" inputmode="numeric" placeholder="Masukkan Zone ID">
-  </section>
+<section class="card">
+<h2>02. Data Akun</h2>
+<label for="uid">User ID</label>
+<input id="uid" inputmode="numeric" placeholder="Masukkan User ID ML">
+<label for="zone">Zone ID</label>
+<input id="zone" inputmode="numeric" placeholder="Masukkan Zone ID">
+</section>
 
-  <section class="card">
-    <h2>03. Pilih Diamond</h2>
-    <div class="grid">
-      <button type="button" class="package active" data-name="86 Diamonds">
-        <b>86 Diamonds</b><small>Harga konfirmasi admin</small>
-      </button>
-      <button type="button" class="package" data-name="172 Diamonds">
-        <b>172 Diamonds</b><small>Harga konfirmasi admin</small>
-      </button>
-      <button type="button" class="package" data-name="257 Diamonds">
-        <b>257 Diamonds</b><small>Harga konfirmasi admin</small>
-      </button>
-      <button type="button" class="package" data-name="Weekly Pass">
-        <b>Weekly Pass</b><small>Harga konfirmasi admin</small>
-      </button>
-    </div>
-    <p class="note">Pastikan harga sudah dikonfirmasi admin sebelum membayar.</p>
-  </section>
+<section class="card">
+<h2>03. Pilih Diamond</h2>
+<div class="grid">
+<button type="button" class="package active" data-name="86 Diamonds"><b>86 Diamonds</b><small>Harga konfirmasi admin</small></button>
+<button type="button" class="package" data-name="172 Diamonds"><b>172 Diamonds</b><small>Harga konfirmasi admin</small></button>
+<button type="button" class="package" data-name="257 Diamonds"><b>257 Diamonds</b><small>Harga konfirmasi admin</small></button>
+<button type="button" class="package" data-name="Weekly Pass"><b>Weekly Pass</b><small>Harga konfirmasi admin</small></button>
+</div>
+<p class="note">Harga belum diatur. Konfirmasi harga ke admin sebelum membayar.</p>
+</section>
 
-  <section class="card">
-    <h2>04. Ringkasan Pesanan</h2>
-    <p>Game: Mobile Legends</p>
-    <p id="selected">Paket: 86 Diamonds</p>
-    <p>Total: Konfirmasi ke admin</p>
-    <button type="button" class="submit" id="order">LANJUTKAN KE WHATSAPP</button>
-    <p class="note" id="message">Pesanan akan dikirim ke WhatsApp admin. Pembayaran QRIS dan top-up otomatis belum diaktifkan.</p>
-  </section>
+<section class="card">
+<h2>04. Ringkasan Pesanan</h2>
+<p>Game: Mobile Legends</p>
+<p id="selected">Paket: 86 Diamonds</p>
+<p>Total: Konfirmasi ke admin</p>
+<button type="button" class="submit" id="order">LANJUTKAN KE WHATSAPP</button>
+<p class="note" id="message">Pesanan dikirim ke WhatsApp admin. Pembayaran QRIS dan top-up otomatis belum aktif.</p>
+</section>
 </main>
 <footer>© LIXERA STORE • ALL RIGHTS RESERVED</footer>
 
 <script>
-let chosen = document.querySelector('.package');
+let chosen=document.querySelector('.package');
 
-document.querySelectorAll('.package').forEach(button => {
-  button.addEventListener('click', () => {
-    chosen.classList.remove('active');
-    chosen = button;
-    chosen.classList.add('active');
-    document.getElementById('selected').textContent =
-      'Paket: ' + chosen.dataset.name;
-  });
+document.querySelectorAll('.package').forEach(btn=>{
+btn.addEventListener('click',()=>{
+chosen.classList.remove('active');
+chosen=btn;
+chosen.classList.add('active');
+document.getElementById('selected').textContent='Paket: '+chosen.dataset.name;
+});
 });
 
-document.getElementById('order').addEventListener('click', () => {
-  const uid = document.getElementById('uid').value.trim();
-  const zone = document.getElementById('zone').value.trim();
-  const game = document.getElementById('game').value;
+document.getElementById('order').addEventListener('click',()=>{
+const uid=document.getElementById('uid').value.trim();
+const zone=document.getElementById('zone').value.trim();
+const game=document.getElementById('game').value;
 
-  if (!uid || !zone) {
-    document.getElementById('message').textContent =
-      'Isi User ID dan Zone ID terlebih dahulu.';
-    return;
-  }
+if(!uid||!zone){
+document.getElementById('message').textContent='Isi User ID dan Zone ID terlebih dahulu.';
+return;
+}
 
-  const pesan = `Halo Admin LIXERA STORE, saya ingin memesan top up.
-
+const pesan=`Halo Admin LIXERA STORE!
 Game: ${game}
 Paket: ${chosen.dataset.name}
 User ID: ${uid}
 Zone ID: ${zone}
 
-Mohon konfirmasi harga dan metode pembayaran.`;
+Mohon konfirmasi harga dan cara pembayaran.`;
 
-  window.location.href =
-    'https://wa.me/628818238317?text=' + encodeURIComponent(pesan);
+window.location.href='https://wa.me/628818238317?text='+encodeURIComponent(pesan);
 });
 </script>
 </body>
